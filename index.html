@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JJG Carpentry LLC</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #0a1628;
+      color: #c9a84c;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      font-size: 1.1em;
+      color: #fff;
+      margin-top: 8px;
+    }
+
+    nav {
+      background-color: #c9a84c;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 12px;
+    }
+
+    nav a {
+      color: #0a1628;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    .hero {
+      background-color: #0a1628;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h2 {
+      font-size: 2em;
+      color: #c9a84c;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1em;
+      max-width: 600px;
+      margin: 0 auto 25px;
+    }
+
+    .hero a {
+      background-color: #c9a84c;
+      color: #0a1628;
+      padding: 12px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .hero a:hover { background-color: #b8943d; }
+
+    .services {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .services h2 {
+      font-size: 2em;
+      color: #0a1628;
+      margin-bottom: 30px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background-color: #0a1628;
+      color: #c9a84c;
+      padding: 25px 15px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    .contact {
+      background-color: #f4f4f4;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2em;
+      color: #0a1628;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      font-size: 1.1em;
+      margin: 8px 0;
+    }
+
+    .contact a {
+      color: #c9a84c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact a:hover { text-decoration: underline; }
+
+    footer {
+      background-color: #0a1628;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>JJG Carpentry LLC</h1>
+    <p>Your Trusted Handyman & Home Services Professionals in South Florida</p>
+  </header>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Quality Work You Can Count On</h2>
+    <p>Handyman, carpentry, plumbing, roofing, painting, pressure cleaning — we handle it all across South Florida.</p>
+    <a href="#contact">Get a Free Quote</a>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">🛠️ Handyman Services</div>
+      <div class="service-card">🔧 Plumbing</div>
+      <div class="service-card">🪚 Carpentry</div>
+      <div class="service-card">⚡ Electrical</div>
+      <div class="service-card">🎨 Painting</div>
+      <div class="service-card">💧 Pressure Cleaning</div>
+      <div class="service-card">🚚 Delivery</div>
+      <div class="service-card">🏠 Roof Repairs</div>
+      <div class="service-card">🧱 Drywall Repairs</div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>📞 <a href="tel:9545403218">(954) 540-3218</a></p>
+    <p>📧 <a href="mailto:jjgcarpentryllc@outlook.com">jjgcarpentryllc@outlook.com</a></p>
+    <p>📍 South Florida</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 JJG Carpentry LLC. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
