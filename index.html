@@ -1,340 +1,461 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JJG Carpentry LLC</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JJG Carpentry LLC</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+header {
+  background-color: #0a1628;
+  color: #c9a84c;
+  padding: 30px 20px;
+  text-align: center;
+}
+header h1 {
+  font-size: 2.8em;
+  letter-spacing: 2px;
+}
+header p {
+  font-size: 1.1em;
+  color: #fff;
+  margin-top: 8px;
+}
+nav {
+  background-color: #c9a84c;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 12px;
+  flex-wrap: wrap;
+}
+nav a {
+  color: #0a1628;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+}
+nav a:hover { text-decoration: underline; }
+.hero {
+  background-color: #0a1628;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+.hero h2 {
+  font-size: 2em;
+  color: #c9a84c;
+  margin-bottom: 15px;
+}
+.hero p {
+  font-size: 1.1em;
+  max-width: 600px;
+  margin: 0 auto 25px;
+}
+.hero a {
+  background-color: #c9a84c;
+  color: #0a1628;
+  padding: 12px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+}
+.hero a:hover { background-color: #b8943d; }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
+/* --- Why Choose Us --- */
+.why-us {
+  background-color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.why-us-item h3 {
+  color: #0a1628;
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+.why-us-item p {
+  font-size: 0.95em;
+  color: #555;
+}
+.why-us-item .icon {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
 
-    header {
-      background-color: #0a1628;
-      color: #c9a84c;
-      padding: 30px 20px;
-      text-align: center;
-    }
+/* --- Services --- */
+.services {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+.services h2 {
+  font-size: 2em;
+  color: #0a1628;
+  margin-bottom: 30px;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.service-card {
+  background-color: #0a1628;
+  color: #fff;
+  padding: 25px 20px;
+  border-radius: 8px;
+  text-align: left;
+}
+.service-card .icon {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+.service-card h3 {
+  color: #c9a84c;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+}
+.service-card p {
+  font-size: 0.9em;
+  color: #ddd;
+  line-height: 1.4;
+}
 
-    header h1 {
-      font-size: 2.8em;
-      letter-spacing: 2px;
-    }
+/* --- FAQ --- */
+.faq {
+  background-color: #fff;
+  padding: 50px 20px;
+}
+.faq h2 {
+  font-size: 2em;
+  color: #0a1628;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 18px 0;
+}
+.faq-item h3 {
+  color: #0a1628;
+  font-size: 1.05em;
+  margin-bottom: 8px;
+}
+.faq-item p {
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
 
-    header p {
-      font-size: 1.1em;
-      color: #fff;
-      margin-top: 8px;
-    }
+.contact {
+  background-color: #f4f4f4;
+  padding: 50px 20px;
+  text-align: center;
+}
+.contact h2 {
+  font-size: 2em;
+  color: #0a1628;
+  margin-bottom: 20px;
+}
+.contact p {
+  font-size: 1.1em;
+  margin: 8px 0;
+}
+.contact a {
+  color: #c9a84c;
+  text-decoration: none;
+  font-weight: bold;
+}
+.contact a:hover { text-decoration: underline; }
 
-    nav {
-      background-color: #c9a84c;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 12px;
-    }
-
-    nav a {
-      color: #0a1628;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1em;
-    }
-
-    nav a:hover { text-decoration: underline; }
-
-    .hero {
-      background-color: #0a1628;
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    .hero h2 {
-      font-size: 2em;
-      color: #c9a84c;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 1.1em;
-      max-width: 600px;
-      margin: 0 auto 25px;
-    }
-
-    .hero a {
-      background-color: #c9a84c;
-      color: #0a1628;
-      padding: 12px 30px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1em;
-    }
-
-    .hero a:hover { background-color: #b8943d; }
-
-    .services {
-      padding: 50px 20px;
-      text-align: center;
-      background-color: #fff;
-    }
-
-    .services h2 {
-      font-size: 2em;
-      color: #0a1628;
-      margin-bottom: 30px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .service-card {
-      background-color: #0a1628;
-      color: #c9a84c;
-      padding: 25px 15px;
-      border-radius: 8px;
-      font-size: 1.1em;
-      font-weight: bold;
-    }
-
-    .contact {
-      background-color: #f4f4f4;
-      padding: 50px 20px;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: 2em;
-      color: #0a1628;
-      margin-bottom: 20px;
-    }
-
-    .contact p {
-      font-size: 1.1em;
-      margin: 8px 0;
-    }
-
-    .contact a {
-      color: #c9a84c;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .contact a:hover { text-decoration: underline; }
-
-    /* --- Contact form styles --- */
-    .contact-form {
-      max-width: 500px;
-      margin: 30px auto 10px;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      text-align: left;
-    }
-
-    .contact-form label {
-      display: block;
-      font-weight: bold;
-      color: #0a1628;
-      margin-bottom: 6px;
-      margin-top: 16px;
-      font-size: 0.95em;
-    }
-
-    .contact-form label:first-child { margin-top: 0; }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 1em;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: #c9a84c;
-    }
-
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .contact-form button {
-      margin-top: 20px;
-      width: 100%;
-      background-color: #c9a84c;
-      color: #0a1628;
-      border: none;
-      padding: 14px;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 1.05em;
-      cursor: pointer;
-    }
-
-    .contact-form button:hover { background-color: #b8943d; }
-
-    .form-status {
-      margin-top: 14px;
-      font-weight: bold;
-      display: none;
-    }
-
-    .form-status.success { color: #1a7a3c; display: block; }
-    .form-status.error { color: #b02a2a; display: block; }
-
-    .contact-divider {
-      max-width: 500px;
-      margin: 35px auto;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #999;
-      font-size: 0.9em;
-    }
-
-    .contact-divider::before,
-    .contact-divider::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background-color: #ccc;
-    }
-
-    footer {
-      background-color: #0a1628;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-  </style>
+/* --- Contact form styles --- */
+.contact-form {
+  max-width: 500px;
+  margin: 30px auto 10px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  text-align: left;
+}
+.contact-form label {
+  display: block;
+  font-weight: bold;
+  color: #0a1628;
+  margin-bottom: 6px;
+  margin-top: 16px;
+  font-size: 0.95em;
+}
+.contact-form label:first-child { margin-top: 0; }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1em;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #c9a84c;
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.contact-form button {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #c9a84c;
+  color: #0a1628;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1.05em;
+  cursor: pointer;
+}
+.contact-form button:hover { background-color: #b8943d; }
+.form-status {
+  margin-top: 14px;
+  font-weight: bold;
+  display: none;
+}
+.form-status.success { color: #1a7a3c; display: block; }
+.form-status.error { color: #b02a2a; display: block; }
+.contact-divider {
+  max-width: 500px;
+  margin: 35px auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #999;
+  font-size: 0.9em;
+}
+.contact-divider::before,
+.contact-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+footer {
+  background-color: #0a1628;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>JJG Carpentry LLC</h1>
-    <p>Your Trusted Handyman & Home Services Professionals in South Florida</p>
-  </header>
+<header>
+  <h1>JJG Carpentry LLC</h1>
+  <p>Your Trusted Handyman & Home Services Professionals in South Florida</p>
+</header>
 
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav>
+  <a href="#services">Services</a>
+  <a href="#why-us">Why Us</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section class="hero">
-    <h2>Quality Work You Can Count On</h2>
-    <p>Handyman, carpentry, plumbing, roofing, painting, pressure cleaning — we handle it all across South Florida.</p>
-    <a href="#contact">Get a Free Quote</a>
-  </section>
+<section class="hero">
+  <h2>Quality Work You Can Count On</h2>
+  <p>Handyman, carpentry, plumbing, roofing, painting, pressure cleaning — we handle it all across South Florida.</p>
+  <a href="#contact">Get a Free Quote</a>
+</section>
 
-  <section class="services" id="services">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card">🛠️ Handyman Services</div>
-      <div class="service-card">🔧 Plumbing</div>
-      <div class="service-card">🪚 Carpentry</div>
-      <div class="service-card">⚡ Electrical</div>
-      <div class="service-card">🎨 Painting</div>
-      <div class="service-card">💧 Pressure Cleaning</div>
-      <div class="service-card">🚚 Delivery</div>
-      <div class="service-card">🏠 Roof Repairs</div>
-      <div class="service-card">🧱 Drywall Repairs</div>
+<section class="why-us" id="why-us">
+  <div class="why-us-grid">
+    <div class="why-us-item">
+      <div class="icon">✅</div>
+      <h3>Reliable</h3>
+      <p>Straightforward pricing and work you can trust, job after job.</p>
     </div>
-  </section>
+    <div class="why-us-item">
+      <div class="icon">📍</div>
+      <h3>Local to South Florida</h3>
+      <p>Serving Hollywood, Fort Lauderdale, Miami, Boca Raton, and nearby areas.</p>
+    </div>
+    <div class="why-us-item">
+      <div class="icon">⏱️</div>
+      <h3>Fast Response</h3>
+      <p>Reach out today and we'll get back to you quickly to schedule your job.</p>
+    </div>
+  </div>
+</section>
 
-  <section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>📞 <a href="tel:9545403218">(954) 540-3218</a></p>
-    <p>📧 <a href="mailto:jjgcarpentryllc@outlook.com">jjgcarpentryllc@outlook.com</a></p>
-    <p>📍 South Florida</p>
-    <p>🚐 Service Area: Proudly serving Hollywood, Fort Lauderdale, Miami, Boca Raton, and surrounding South Florida communities within 40 miles.</p>
+<section class="services" id="services">
+  <h2>Our Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="icon">🛠️</div>
+      <h3>Handyman Services</h3>
+      <p>General repairs and maintenance for your home or business.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🔧</div>
+      <h3>Plumbing</h3>
+      <p>Leaks, fixtures, and everyday plumbing fixes.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🪚</div>
+      <h3>Carpentry</h3>
+      <p>Custom builds, repairs, and finish carpentry work.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">⚡</div>
+      <h3>Electrical</h3>
+      <p>Fixture installs, outlets, and minor electrical repairs.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🎨</div>
+      <h3>Painting</h3>
+      <p>Interior and exterior painting, done neatly and on time.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">💧</div>
+      <h3>Pressure Cleaning</h3>
+      <p>Driveways, siding, and outdoor surfaces refreshed.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🚚</div>
+      <h3>Delivery</h3>
+      <p>Reliable delivery service for your materials and items.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🏠</div>
+      <h3>Roof Repairs</h3>
+      <p>Patchwork and minor roof repair services.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🧱</div>
+      <h3>Drywall Repairs</h3>
+      <p>Holes, cracks, and drywall patching done right.</p>
+    </div>
+  </div>
+</section>
 
-    <div class="contact-divider">or send a message directly</div>
+<section class="faq" id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3>Do I need to be home for the service?</h3>
+      <p>It depends on the job — for most work we recommend being available, but we can discuss options when you request a quote.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do you bring your own tools and materials?</h3>
+      <p>Yes, we arrive ready with the tools needed for the job. Materials can be discussed and sourced as needed for your project.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How fast can you get to my job?</h3>
+      <p>Reach out through the form below or give us a call, and we'll get back to you promptly to schedule.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What areas do you serve?</h3>
+      <p>We proudly serve Hollywood, Fort Lauderdale, Miami, Boca Raton, and surrounding South Florida communities within 40 miles.</p>
+    </div>
+  </div>
+</section>
 
-    <form class="contact-form" id="quoteForm">
-      <!-- Replace YOUR_ACCESS_KEY_HERE with your Web3Forms access key -->
-      <input type="hidden" name="access_key" value="146193f4-7f33-411d-ab65-47dba4b7ffb5">
-      <input type="hidden" name="subject" value="New message from JJG Carpentry website">
-      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <p>📞 <a href="tel:9545403218">(954) 540-3218</a></p>
+  <p>📧 <a href="mailto:jjgcarpentryllc@outlook.com">jjgcarpentryllc@outlook.com</a></p>
+  <p>📍 South Florida</p>
+  <p>🚐 Service Area: Proudly serving Hollywood, Fort Lauderdale, Miami, Boca Raton, and surrounding South Florida communities within 40 miles.</p>
 
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
+  <div class="contact-divider">or send a message directly</div>
 
-      <label for="phone">Phone</label>
-      <input type="tel" id="phone" name="phone">
+  <form class="contact-form" id="quoteForm">
+    <input type="hidden" name="access_key" value="146193f4-7f33-411d-ab65-47dba4b7ffb5">
+    <input type="hidden" name="subject" value="New message from JJG Carpentry website">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required placeholder="Tell us about the job..."></textarea>
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" name="phone">
 
-      <button type="submit" id="submitBtn">Send Message</button>
-      <p class="form-status" id="formStatus"></p>
-    </form>
-  </section>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
 
-  <footer>
-    <p>&copy; 2024 JJG Carpentry LLC. All rights reserved.</p>
-  </footer>
+    <label for="message">Message</label>
+    <textarea id="message" name="message" required placeholder="Tell us about the job..."></textarea>
 
-  <script>
-    const form = document.getElementById('quoteForm');
-    const statusEl = document.getElementById('formStatus');
-    const submitBtn = document.getElementById('submitBtn');
+    <button type="submit" id="submitBtn">Send Message</button>
+    <p class="form-status" id="formStatus"></p>
+  </form>
+</section>
 
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      statusEl.className = 'form-status';
-      statusEl.textContent = '';
+<footer>
+  <p>&copy; 2024 JJG Carpentry LLC. All rights reserved.</p>
+</footer>
 
-      const formData = new FormData(form);
+<script>
+const form = document.getElementById('quoteForm');
+const statusEl = document.getElementById('formStatus');
+const submitBtn = document.getElementById('submitBtn');
 
-      try {
-        const response = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: formData
-        });
-        const result = await response.json();
+form.addEventListener('submit', async function (e) {
+  e.preventDefault();
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+  statusEl.className = 'form-status';
+  statusEl.textContent = '';
 
-        if (result.success) {
-          statusEl.textContent = "Thanks! Your message has been sent — we'll get back to you soon.";
-          statusEl.className = 'form-status success';
-          form.reset();
-        } else {
-          statusEl.textContent = "Something went wrong. Please try again or email us directly.";
-          statusEl.className = 'form-status error';
-        }
-      } catch (error) {
-        statusEl.textContent = "Something went wrong. Please try again or email us directly.";
-        statusEl.className = 'form-status error';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message';
-      }
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
     });
-  </script>
+
+    const result = await response.json();
+
+    if (result.success) {
+      statusEl.textContent = "Thanks! Your message has been sent — we'll get back to you soon.";
+      statusEl.className = 'form-status success';
+      form.reset();
+    } else {
+      statusEl.textContent = "Something went wrong. Please try again or email us directly.";
+      statusEl.className = 'form-status error';
+    }
+  } catch (error) {
+    statusEl.textContent = "Something went wrong. Please try again or email us directly.";
+    statusEl.className = 'form-status error';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Message';
+  }
+});
+</script>
 
 </body>
 </html>
