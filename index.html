@@ -539,6 +539,51 @@ textarea.form-control { resize: vertical; min-height: 130px; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ── Service pop-up ── */
+.service-card { cursor: pointer; }
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(6,14,26,0.85);
+  z-index: 2000;
+  display: none;
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.service-modal {
+  background: var(--white);
+  border-radius: 16px;
+  max-width: 560px; width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  text-align: left;
+}
+.modal-img { width: 100%; height: 260px; object-fit: cover; display: block; }
+.modal-placeholder {
+  height: 260px;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 72px;
+}
+.modal-body { padding: 28px; }
+.modal-body h3 { font-size: 24px; margin-bottom: 10px; }
+.modal-body p { color: var(--gray-dark); font-size: 15px; }
+.modal-list { margin-top: 16px; }
+.modal-list li { position: relative; padding-left: 26px; margin: 8px 0; font-size: 15px; }
+.modal-list li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+.modal-body .btn { margin-top: 20px; }
+.modal-close {
+  position: absolute; top: 12px; right: 12px;
+  width: 40px; height: 40px;
+  border-radius: 50%; border: none;
+  background: rgba(10,22,40,0.75);
+  color: var(--white);
+  font-size: 18px; cursor: pointer;
+  z-index: 2;
+}
+.modal-close:hover { background: var(--gold); color: var(--navy); }
 </style>
 </head>
 <body>
@@ -560,7 +605,7 @@ textarea.form-control { resize: vertical; min-height: 130px; }
       <a href="#services">Services</a>
       <a href="#why-us">Why Us</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact" class="nav-cta">Get a Free Quote</a>
+      <a href="#contact" class="nav-cta">Get a Free Estimate</a>
     </div>
   </div>
 </nav>
@@ -573,7 +618,7 @@ textarea.form-control { resize: vertical; min-height: 130px; }
       <h1 class="hero-title">Quality Work <span>You Can Count On</span></h1>
       <p class="hero-subtitle">Handyman, carpentry, plumbing, roofing, painting, pressure cleaning — we handle it all across South Florida.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+        <a href="#contact" class="btn btn-primary">Get a Free Estimate</a>
         <a href="tel:9545403218" class="btn btn-outline">Call (954) 540-3218</a>
       </div>
       <div class="hero-stats">
@@ -587,7 +632,7 @@ textarea.form-control { resize: vertical; min-height: 130px; }
         </div>
         <div>
           <div class="hero-stat-num">Free</div>
-          <div class="hero-stat-label">Quotes</div>
+          <div class="hero-stat-label">Estimates</div>
         </div>
       </div>
     </div>
@@ -713,8 +758,8 @@ textarea.form-control { resize: vertical; min-height: 130px; }
       </div>
       <div class="process-step">
         <div class="process-num">2</div>
-        <h3>Get your quote</h3>
-        <p>We go over the details with you and give you a free quote.</p>
+        <h3>Get your estimate</h3>
+        <p>We go over the details with you and give you a free estimate.</p>
       </div>
       <div class="process-step">
         <div class="process-num">3</div>
@@ -735,7 +780,7 @@ textarea.form-control { resize: vertical; min-height: 130px; }
     <div class="faq-list">
       <div class="faq-item">
         <h3>Do I need to be home for the service?</h3>
-        <p>It depends on the job — for most work we recommend being available, but we can discuss options when you request a quote.</p>
+        <p>It depends on the job — for most work we recommend being available, but we can discuss options when you request an estimate.</p>
       </div>
       <div class="faq-item">
         <h3>Do you bring your own tools and materials?</h3>
@@ -828,6 +873,20 @@ textarea.form-control { resize: vertical; min-height: 130px; }
   </div>
 </footer>
 
+<!-- Service pop-up -->
+<div class="modal-overlay" id="serviceModal" aria-hidden="true">
+  <div class="service-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div id="modalMedia"></div>
+    <div class="modal-body">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <ul class="modal-list" id="modalList"></ul>
+      <a href="#contact" class="btn btn-primary" id="modalQuote">Get a Free Estimate</a>
+    </div>
+  </div>
+</div>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -884,6 +943,99 @@ form.addEventListener('submit', async function (e) {
     submitBtn.textContent = 'Send Message';
   }
 });
+
+/* Service pop-ups */
+const services = {
+  'Handyman Services': { img: 'images/handyman.jpg', icon: '🛠️',
+    desc: 'General repairs and maintenance for your home or business.',
+    list: ['Door and lock repairs', 'Mounting TVs, shelves and mirrors', 'Small fixes around the house'] },
+  'Plumbing': { img: 'images/plumbing.jpg', icon: '🔧',
+    desc: 'Leaks, fixtures, and everyday plumbing fixes.',
+    list: ['Leaky faucets and pipes', 'Fixture and toilet replacement', 'Drain and minor repair work'] },
+  'Carpentry': { img: 'images/carpentry.jpg', icon: '🪚',
+    desc: 'Custom builds, repairs, and finish carpentry work.',
+    list: ['Trim and baseboards', 'Door hanging and repair', 'Custom shelving and builds'] },
+  'Electrical': { img: 'images/electrical.jpg', icon: '⚡',
+    desc: 'Fixture installs, outlets, and minor electrical repairs.',
+    list: ['Light fixture and ceiling fan installs', 'Outlet and switch replacement', 'Minor electrical repairs'] },
+  'Painting': { img: 'images/painting.jpg', icon: '🎨',
+    desc: 'Interior and exterior painting, done neatly and on time.',
+    list: ['Interior rooms and trim', 'Exterior walls', 'Touch-ups and repaints'] },
+  'Pressure Cleaning': { img: 'images/pressure-cleaning.jpg', icon: '💧',
+    desc: 'Driveways, siding, and outdoor surfaces refreshed.',
+    list: ['Driveways and walkways', 'Siding and fences', 'Patios and outdoor areas'] },
+  'Delivery': { img: 'images/delivery.jpg', icon: '🚚',
+    desc: 'Reliable delivery service for your materials and items.',
+    list: ['Building materials', 'Furniture and household items', 'Scheduled pickup and drop-off'] },
+  'Roof Repairs': { img: 'images/roof.jpg', icon: '🏠',
+    desc: 'Patchwork and minor roof repair services.',
+    list: ['Patching small problem areas', 'Minor leak repairs', 'Shingle and tile touch-ups'] },
+  'Drywall Repairs': { img: 'images/drywall.jpg', icon: '🧱',
+    desc: 'Holes, cracks, and drywall patching done right.',
+    list: ['Holes and cracks', 'Patching and smoothing', 'Ready-to-paint finish'] }
+};
+
+const modal = document.getElementById('serviceModal');
+const modalMedia = document.getElementById('modalMedia');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalList = document.getElementById('modalList');
+const modalClose = document.getElementById('modalClose');
+let lastFocus = null;
+
+function openModal(title) {
+  const s = services[title];
+  lastFocus = document.activeElement;
+  modalTitle.textContent = title;
+  modalDesc.textContent = s.desc;
+  modalList.innerHTML = '';
+  s.list.forEach(function (item) {
+    const li = document.createElement('li');
+    li.textContent = item;
+    modalList.appendChild(li);
+  });
+
+  modalMedia.innerHTML = '';
+  const img = document.createElement('img');
+  img.className = 'modal-img';
+  img.alt = title;
+  img.src = s.img;
+  img.onerror = function () {
+    modalMedia.innerHTML = '';
+    const ph = document.createElement('div');
+    ph.className = 'modal-placeholder';
+    ph.textContent = s.icon;
+    modalMedia.appendChild(ph);
+  };
+  modalMedia.appendChild(img);
+
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  modalClose.focus();
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  if (lastFocus) lastFocus.focus();
+}
+
+document.querySelectorAll('.service-card').forEach(function (card) {
+  const title = card.querySelector('h3').textContent.trim();
+  if (!services[title]) return;
+  card.tabIndex = 0;
+  card.setAttribute('role', 'button');
+  card.addEventListener('click', function () { openModal(title); });
+  card.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(title); }
+  });
+});
+
+modalClose.addEventListener('click', closeModal);
+document.getElementById('modalQuote').addEventListener('click', closeModal);
+modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
 </script>
 
-</body>
