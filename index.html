@@ -3,420 +3,849 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>JJG Carpentry LLC</title>
+<title>JJG Carpentry LLC | Handyman &amp; Home Services in South Florida</title>
+<meta name="description" content="JJG Carpentry LLC: handyman, carpentry, plumbing, electrical, painting, roofing, pressure cleaning, drywall and delivery across South Florida." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-}
-header {
-  background-color: #0a1628;
-  color: #c9a84c;
-  padding: 30px 20px;
-  text-align: center;
-}
-header h1 {
-  font-size: 2.8em;
-  letter-spacing: 2px;
-}
-header p {
-  font-size: 1.1em;
-  color: #fff;
-  margin-top: 8px;
-}
-nav {
-  background-color: #c9a84c;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 12px;
-  flex-wrap: wrap;
-}
-nav a {
-  color: #0a1628;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1em;
-}
-nav a:hover { text-decoration: underline; }
-.hero {
-  background-color: #0a1628;
-  color: #fff;
-  text-align: center;
-  padding: 60px 20px;
-}
-.hero h2 {
-  font-size: 2em;
-  color: #c9a84c;
-  margin-bottom: 15px;
-}
-.hero p {
-  font-size: 1.1em;
-  max-width: 600px;
-  margin: 0 auto 25px;
-}
-.hero a {
-  background-color: #c9a84c;
-  color: #0a1628;
-  padding: 12px 30px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1em;
-}
-.hero a:hover { background-color: #b8943d; }
+/* ============================================================
+   JJG Carpentry LLC
+   Navy #0a1628 | Gold #c9a84c | White | Light Gray #f4f4f4
+   Fonts: Montserrat (headings) | Open Sans (body)
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* --- Why Choose Us --- */
-.why-us {
-  background-color: #fff;
-  padding: 40px 20px;
-  text-align: center;
+:root {
+  --navy:       #0a1628;
+  --navy-mid:   #122040;
+  --navy-light: #1e3a5f;
+  --gold:       #c9a84c;
+  --gold-light: #e0c06a;
+  --white:      #ffffff;
+  --gray-light: #f4f4f4;
+  --gray-mid:   #e0e0e0;
+  --gray-dark:  #666666;
+  --text:       #1a1a2e;
+  --shadow:     0 4px 24px rgba(10,22,40,0.12);
+  --shadow-lg:  0 8px 40px rgba(10,22,40,0.18);
+  --radius:     12px;
+  --radius-sm:  6px;
+  --transition: 0.3s ease;
 }
-.why-us-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 25px;
-  max-width: 900px;
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1,h2,h3,h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+section[id] { scroll-margin-top: 72px; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 80px 0; }
+.bg-gray { background: var(--gray-light); }
+.text-center { text-align: center; }
+
+.section-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.section-subtitle {
+  font-size: 17px;
+  color: var(--gray-dark);
+  max-width: 600px;
   margin: 0 auto;
 }
-.why-us-item h3 {
-  color: #0a1628;
-  font-size: 1.2em;
-  margin-bottom: 8px;
-}
-.why-us-item p {
-  font-size: 0.95em;
-  color: #555;
-}
-.why-us-item .icon {
-  font-size: 2em;
-  margin-bottom: 10px;
+.divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 2px;
+  margin: 16px auto 32px;
 }
 
-/* --- Services --- */
-.services {
-  padding: 50px 20px;
-  text-align: center;
-  background-color: #f4f4f4;
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+  text-transform: uppercase;
 }
-.services h2 {
-  font-size: 2em;
-  color: #0a1628;
-  margin-bottom: 30px;
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy);
+  box-shadow: 0 4px 20px rgba(201,168,76,0.35);
 }
-.services-grid {
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.5); }
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--gold);
+}
+.btn-outline:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+
+/* ── Navigation ── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(10,22,40,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  padding: 0 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900; font-size: 18px;
+  color: var(--navy);
+}
+.nav-logo-text { display: flex; flex-direction: column; }
+.nav-logo-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800; font-size: 16px;
+  color: var(--white); line-height: 1;
+}
+.nav-logo-tagline {
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-links a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600; font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+.nav-links a:hover { color: var(--gold); background: rgba(201,168,76,0.1); }
+.nav-links a.nav-cta {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy);
+  padding: 10px 20px;
+  border-radius: 50px;
+}
+.nav-links a.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,168,76,0.4); }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 10px;
+  background: none;
+  border: none;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+}
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #0a1628 100%);
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 40%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 24px 80px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201,168,76,0.15);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 12px; font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+.hero-badge::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+.hero-title {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.hero-title span { color: var(--gold); }
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  flex-wrap: wrap;
+}
+.hero-stat-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px; font-weight: 900;
+  color: var(--gold); line-height: 1;
+}
+.hero-stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  margin-top: 6px;
+}
+.hero-visual { display: flex; align-items: center; justify-content: center; }
+.hero-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 20px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 420px;
+}
+.hero-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.hero-card-icon {
+  width: 48px; height: 48px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+.hero-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; color: var(--white); font-size: 16px;
+}
+.hero-card-sub { font-size: 12px; color: rgba(255,255,255,0.6); }
+.hero-service-list { display: flex; flex-direction: column; gap: 12px; }
+.hero-service-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.hero-service-item .emoji { font-size: 20px; }
+.hero-service-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600; font-size: 13px;
+  color: var(--white); flex: 1;
+}
+.hero-service-check {
+  width: 20px; height: 20px;
+  background: rgba(201,168,76,0.2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: var(--gold);
+}
+
+/* ── Why Us ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
   max-width: 1000px;
   margin: 0 auto;
 }
-.service-card {
-  background-color: #0a1628;
-  color: #fff;
-  padding: 25px 20px;
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: var(--gray-light);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--gold);
+}
+.feature-icon {
+  width: 44px; height: 44px;
+  background: var(--navy);
   border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.feature-text h3 { font-size: 16px; margin-bottom: 4px; }
+.feature-text p { font-size: 14px; color: var(--gray-dark); line-height: 1.6; }
+
+/* ── Services ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
   text-align: left;
 }
-.service-card .icon {
-  font-size: 1.8em;
-  margin-bottom: 10px;
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  border: 1px solid var(--gray-mid);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
 }
-.service-card h3 {
-  color: #c9a84c;
-  font-size: 1.1em;
-  margin-bottom: 8px;
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transform: scaleX(0);
+  transition: transform var(--transition);
 }
-.service-card p {
-  font-size: 0.9em;
-  color: #ddd;
-  line-height: 1.4;
-}
-
-/* --- FAQ --- */
-.faq {
-  background-color: #fff;
-  padding: 50px 20px;
-}
-.faq h2 {
-  font-size: 2em;
-  color: #0a1628;
-  text-align: center;
-  margin-bottom: 30px;
-}
-.faq-list {
-  max-width: 700px;
-  margin: 0 auto;
-}
-.faq-item {
-  border-bottom: 1px solid #ddd;
-  padding: 18px 0;
-}
-.faq-item h3 {
-  color: #0a1628;
-  font-size: 1.05em;
-  margin-bottom: 8px;
-}
-.faq-item p {
-  color: #555;
-  font-size: 0.95em;
-  line-height: 1.5;
-}
-
-.contact {
-  background-color: #f4f4f4;
-  padding: 50px 20px;
-  text-align: center;
-}
-.contact h2 {
-  font-size: 2em;
-  color: #0a1628;
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: rgba(201,168,76,0.3); }
+.service-card:hover::before { transform: scaleX(1); }
+.service-icon {
+  width: 64px; height: 64px;
+  background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.05));
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px;
   margin-bottom: 20px;
+  transition: background var(--transition);
 }
-.contact p {
-  font-size: 1.1em;
-  margin: 8px 0;
-}
-.contact a {
-  color: #c9a84c;
-  text-decoration: none;
-  font-weight: bold;
-}
-.contact a:hover { text-decoration: underline; }
+.service-card:hover .service-icon { background: linear-gradient(135deg, var(--gold), var(--gold-light)); }
+.service-card h3 { font-size: 18px; margin-bottom: 10px; }
+.service-card p { font-size: 14px; color: var(--gray-dark); line-height: 1.7; }
 
-/* --- Contact form styles --- */
-.contact-form {
-  max-width: 500px;
-  margin: 30px auto 10px;
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  text-align: left;
+/* ── How it works ── */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+  position: relative;
 }
-.contact-form label {
-  display: block;
-  font-weight: bold;
-  color: #0a1628;
-  margin-bottom: 6px;
-  margin-top: 16px;
-  font-size: 0.95em;
+.process-grid::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: calc(16.67% + 20px);
+  right: calc(16.67% + 20px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  opacity: 0.3;
 }
-.contact-form label:first-child { margin-top: 0; }
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-family: inherit;
-  font-size: 1em;
+.process-step { text-align: center; padding: 8px 24px 32px; position: relative; }
+.process-num {
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  border: 3px solid var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px; font-weight: 900;
+  color: var(--gold);
+  margin: 0 auto 24px;
+  position: relative; z-index: 1;
 }
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: #c9a84c;
-}
-.contact-form textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-.contact-form button {
-  margin-top: 20px;
-  width: 100%;
-  background-color: #c9a84c;
-  color: #0a1628;
-  border: none;
-  padding: 14px;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 1.05em;
-  cursor: pointer;
-}
-.contact-form button:hover { background-color: #b8943d; }
-.form-status {
-  margin-top: 14px;
-  font-weight: bold;
-  display: none;
-}
-.form-status.success { color: #1a7a3c; display: block; }
-.form-status.error { color: #b02a2a; display: block; }
+.process-step h3 { font-size: 18px; margin-bottom: 12px; }
+.process-step p { font-size: 14px; color: var(--gray-dark); }
+
+/* ── FAQ ── */
+.faq-list { max-width: 760px; margin: 0 auto; text-align: left; }
+.faq-item { border-bottom: 1px solid var(--gray-mid); padding: 22px 0; }
+.faq-item h3 { font-size: 17px; margin-bottom: 8px; }
+.faq-item p { color: var(--gray-dark); font-size: 15px; line-height: 1.7; }
+
+/* ── Contact ── */
+.contact-info { max-width: 640px; margin: 0 auto; }
+.contact-info p { font-size: 17px; margin: 10px 0; }
+.contact-info a { color: var(--navy); font-weight: 700; border-bottom: 2px solid var(--gold); }
+.contact-info a:hover { color: var(--gold); }
+
 .contact-divider {
   max-width: 500px;
-  margin: 35px auto;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #999;
-  font-size: 0.9em;
+  margin: 40px auto;
+  display: flex; align-items: center; gap: 12px;
+  color: var(--gray-dark);
+  font-size: 14px;
 }
 .contact-divider::before,
-.contact-divider::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background-color: #ccc;
+.contact-divider::after { content: ""; flex: 1; height: 1px; background-color: var(--gray-mid); }
+
+.contact-form {
+  max-width: 540px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 36px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  text-align: left;
 }
-footer {
-  background-color: #0a1628;
-  color: #fff;
+.form-label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600; font-size: 13px;
+  color: var(--navy);
+  margin: 18px 0 8px;
+}
+.form-label:first-of-type { margin-top: 0; }
+.form-control {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--gray-mid);
+  border-radius: var(--radius-sm);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--white);
+  transition: all var(--transition);
+  outline: none;
+}
+.form-control:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.15); }
+.form-control::placeholder { color: #999; }
+textarea.form-control { resize: vertical; min-height: 130px; }
+.contact-form .btn { width: 100%; justify-content: center; margin-top: 24px; }
+.contact-form .btn:disabled { opacity: 0.7; cursor: wait; transform: none; }
+.form-status { margin-top: 14px; font-weight: 700; font-size: 14px; display: none; }
+.form-status.success { color: #1a7a3c; display: block; }
+.form-status.error { color: #b02a2a; display: block; }
+
+/* ── CTA band ── */
+.cta-section {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  padding: 72px 0;
   text-align: center;
-  padding: 20px;
-  font-size: 0.9em;
+}
+.cta-section h2 { color: var(--white); font-size: clamp(26px, 4vw, 38px); margin-bottom: 12px; }
+.cta-section p { color: rgba(255,255,255,0.75); margin-bottom: 28px; font-size: 17px; }
+
+/* ── Footer ── */
+.footer { background: #060e1a; color: rgba(255,255,255,0.7); padding: 48px 0 0; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand p { font-size: 14px; line-height: 1.8; margin-top: 16px; color: rgba(255,255,255,0.6); max-width: 360px; }
+.footer-col h4 {
+  font-size: 14px; color: var(--white);
+  margin-bottom: 18px;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { font-size: 13px; color: rgba(255,255,255,0.6); transition: color var(--transition); }
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom { padding: 20px 0; font-size: 12px; color: rgba(255,255,255,0.45); text-align: center; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    top: 72px; left: 0; right: 0;
+    background: var(--navy);
+    padding: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links.open a { padding: 14px; }
+  .hero-content { grid-template-columns: 1fr; padding-top: 110px; }
+  .hero-visual { display: none; }
+  .process-grid { grid-template-columns: 1fr; }
+  .process-grid::before { display: none; }
+  .section { padding: 60px 0; }
+  .contact-form { padding: 24px; }
+}
+@media (max-width: 480px) {
+  .hero-stats { gap: 20px; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>JJG Carpentry LLC</h1>
-  <p>Your Trusted Handyman & Home Services Professionals in South Florida</p>
-</header>
-
-<nav>
-  <a href="#services">Services</a>
-  <a href="#why-us">Why Us</a>
-  <a href="#faq">FAQ</a>
-  <a href="#contact">Contact</a>
+<!-- Navigation -->
+<nav class="navbar" aria-label="Main">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <div class="nav-logo-icon">JJG</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">JJG Carpentry LLC</span>
+        <span class="nav-logo-tagline">Handyman &amp; Home Services</span>
+      </div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">Get a Free Quote</a>
+    </div>
+  </div>
 </nav>
 
-<section class="hero">
-  <h2>Quality Work You Can Count On</h2>
-  <p>Handyman, carpentry, plumbing, roofing, painting, pressure cleaning — we handle it all across South Florida.</p>
-  <a href="#contact">Get a Free Quote</a>
-</section>
+<!-- Hero -->
+<header class="hero" id="top">
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge">Serving South Florida</div>
+      <h1 class="hero-title">Quality Work <span>You Can Count On</span></h1>
+      <p class="hero-subtitle">Handyman, carpentry, plumbing, roofing, painting, pressure cleaning — we handle it all across South Florida.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+        <a href="tel:9545403218" class="btn btn-outline">Call (954) 540-3218</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">9</div>
+          <div class="hero-stat-label">Services offered</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">40 mi</div>
+          <div class="hero-stat-label">Service area</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">Free</div>
+          <div class="hero-stat-label">Quotes</div>
+        </div>
+      </div>
+    </div>
 
-<section class="why-us" id="why-us">
-  <div class="why-us-grid">
-    <div class="why-us-item">
-      <div class="icon">✅</div>
-      <h3>Reliable</h3>
-      <p>Straightforward pricing and work you can trust, job after job.</p>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="hero-card-icon">🛠️</div>
+          <div>
+            <div class="hero-card-title">What we handle</div>
+            <div class="hero-card-sub">Homes and businesses</div>
+          </div>
+        </div>
+        <div class="hero-service-list">
+          <div class="hero-service-item"><span class="emoji">🪚</span><span class="hero-service-name">Carpentry</span><span class="hero-service-check">✓</span></div>
+          <div class="hero-service-item"><span class="emoji">🔧</span><span class="hero-service-name">Plumbing</span><span class="hero-service-check">✓</span></div>
+          <div class="hero-service-item"><span class="emoji">⚡</span><span class="hero-service-name">Electrical</span><span class="hero-service-check">✓</span></div>
+          <div class="hero-service-item"><span class="emoji">🎨</span><span class="hero-service-name">Painting</span><span class="hero-service-check">✓</span></div>
+          <div class="hero-service-item"><span class="emoji">💧</span><span class="hero-service-name">Pressure Cleaning</span><span class="hero-service-check">✓</span></div>
+        </div>
+      </div>
     </div>
-    <div class="why-us-item">
-      <div class="icon">📍</div>
-      <h3>Local to South Florida</h3>
-      <p>Serving Hollywood, Fort Lauderdale, Miami, Boca Raton, and nearby areas.</p>
-    </div>
-    <div class="why-us-item">
-      <div class="icon">⏱️</div>
-      <h3>Fast Response</h3>
-      <p>Reach out today and we'll get back to you quickly to schedule your job.</p>
+  </div>
+</header>
+
+<!-- Why Us -->
+<section class="section" id="why-us">
+  <div class="container text-center">
+    <h2 class="section-title">Why Choose Us</h2>
+    <div class="divider"></div>
+    <div class="why-grid">
+      <div class="feature-item">
+        <div class="feature-icon">✅</div>
+        <div class="feature-text">
+          <h3>Reliable</h3>
+          <p>Straightforward pricing and work you can trust, job after job.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📍</div>
+        <div class="feature-text">
+          <h3>Local to South Florida</h3>
+          <p>Serving Hollywood, Fort Lauderdale, Miami, Boca Raton, and nearby areas.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">⏱️</div>
+        <div class="feature-text">
+          <h3>Fast Response</h3>
+          <p>Reach out today and we'll get back to you quickly to schedule your job.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="services" id="services">
-  <h2>Our Services</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="icon">🛠️</div>
-      <h3>Handyman Services</h3>
-      <p>General repairs and maintenance for your home or business.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">🔧</div>
-      <h3>Plumbing</h3>
-      <p>Leaks, fixtures, and everyday plumbing fixes.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">🪚</div>
-      <h3>Carpentry</h3>
-      <p>Custom builds, repairs, and finish carpentry work.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">⚡</div>
-      <h3>Electrical</h3>
-      <p>Fixture installs, outlets, and minor electrical repairs.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">🎨</div>
-      <h3>Painting</h3>
-      <p>Interior and exterior painting, done neatly and on time.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">💧</div>
-      <h3>Pressure Cleaning</h3>
-      <p>Driveways, siding, and outdoor surfaces refreshed.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">🚚</div>
-      <h3>Delivery</h3>
-      <p>Reliable delivery service for your materials and items.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">🏠</div>
-      <h3>Roof Repairs</h3>
-      <p>Patchwork and minor roof repair services.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">🧱</div>
-      <h3>Drywall Repairs</h3>
-      <p>Holes, cracks, and drywall patching done right.</p>
-    </div>
-  </div>
-</section>
-
-<section class="faq" id="faq">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-list">
-    <div class="faq-item">
-      <h3>Do I need to be home for the service?</h3>
-      <p>It depends on the job — for most work we recommend being available, but we can discuss options when you request a quote.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Do you bring your own tools and materials?</h3>
-      <p>Yes, we arrive ready with the tools needed for the job. Materials can be discussed and sourced as needed for your project.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How fast can you get to my job?</h3>
-      <p>Reach out through the form below or give us a call, and we'll get back to you promptly to schedule.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What areas do you serve?</h3>
-      <p>We proudly serve Hollywood, Fort Lauderdale, Miami, Boca Raton, and surrounding South Florida communities within 40 miles.</p>
+<!-- Services -->
+<section class="section bg-gray" id="services">
+  <div class="container text-center">
+    <h2 class="section-title">Our Services</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">One call covers the repairs, upgrades, and odd jobs around your home or business.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🛠️</div>
+        <h3>Handyman Services</h3>
+        <p>General repairs and maintenance for your home or business.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Plumbing</h3>
+        <p>Leaks, fixtures, and everyday plumbing fixes.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪚</div>
+        <h3>Carpentry</h3>
+        <p>Custom builds, repairs, and finish carpentry work.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Electrical</h3>
+        <p>Fixture installs, outlets, and minor electrical repairs.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Painting</h3>
+        <p>Interior and exterior painting, done neatly and on time.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💧</div>
+        <h3>Pressure Cleaning</h3>
+        <p>Driveways, siding, and outdoor surfaces refreshed.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚚</div>
+        <h3>Delivery</h3>
+        <p>Reliable delivery service for your materials and items.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Roof Repairs</h3>
+        <p>Patchwork and minor roof repair services.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧱</div>
+        <h3>Drywall Repairs</h3>
+        <p>Holes, cracks, and drywall patching done right.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="contact" id="contact">
-  <h2>Contact Us</h2>
-  <p>📞 <a href="tel:9545403218">(954) 540-3218</a></p>
-  <p>📧 <a href="mailto:jjgcarpentryllc@outlook.com">jjgcarpentryllc@outlook.com</a></p>
-  <p>📍 South Florida</p>
-  <p>🚐 Service Area: Proudly serving Hollywood, Fort Lauderdale, Miami, Boca Raton, and surrounding South Florida communities within 40 miles.</p>
-
-  <div class="contact-divider">or send a message directly</div>
-
-  <form class="contact-form" id="quoteForm">
-    <input type="hidden" name="access_key" value="146193f4-7f33-411d-ab65-47dba4b7ffb5">
-    <input type="hidden" name="subject" value="New message from JJG Carpentry website">
-    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="phone">Phone</label>
-    <input type="tel" id="phone" name="phone">
-
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message">Message</label>
-    <textarea id="message" name="message" required placeholder="Tell us about the job..."></textarea>
-
-    <button type="submit" id="submitBtn">Send Message</button>
-    <p class="form-status" id="formStatus"></p>
-  </form>
+<!-- How it works -->
+<section class="section" id="how-it-works">
+  <div class="container text-center">
+    <h2 class="section-title">How It Works</h2>
+    <div class="divider"></div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <h3>Reach out</h3>
+        <p>Call, email, or send a message below and tell us about the job.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <h3>Get your quote</h3>
+        <p>We go over the details with you and give you a free quote.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <h3>We get it done</h3>
+        <p>We show up with the tools needed and finish the work.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer>
-  <p>&copy; 2024 JJG Carpentry LLC. All rights reserved.</p>
+<!-- FAQ -->
+<section class="section bg-gray" id="faq">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Do I need to be home for the service?</h3>
+        <p>It depends on the job — for most work we recommend being available, but we can discuss options when you request a quote.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you bring your own tools and materials?</h3>
+        <p>Yes, we arrive ready with the tools needed for the job. Materials can be discussed and sourced as needed for your project.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How fast can you get to my job?</h3>
+        <p>Reach out through the form below or give us a call, and we'll get back to you promptly to schedule.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What areas do you serve?</h3>
+        <p>We proudly serve Hollywood, Fort Lauderdale, Miami, Boca Raton, and surrounding South Florida communities within 40 miles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section" id="contact">
+  <div class="container text-center">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="divider"></div>
+
+    <div class="contact-info">
+      <p>📞 <a href="tel:9545403218">(954) 540-3218</a></p>
+      <p>📧 <a href="mailto:jjgcarpentryllc@outlook.com">jjgcarpentryllc@outlook.com</a></p>
+      <p>📍 South Florida</p>
+      <p>🚐 Service Area: Proudly serving Hollywood, Fort Lauderdale, Miami, Boca Raton, and surrounding South Florida communities within 40 miles.</p>
+    </div>
+
+    <div class="contact-divider">or send a message directly</div>
+
+    <form class="contact-form" id="quoteForm">
+      <input type="hidden" name="access_key" value="146193f4-7f33-411d-ab65-47dba4b7ffb5">
+      <input type="hidden" name="subject" value="New message from JJG Carpentry website">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+      <label class="form-label" for="name">Name</label>
+      <input class="form-control" type="text" id="name" name="name" required>
+
+      <label class="form-label" for="phone">Phone</label>
+      <input class="form-control" type="tel" id="phone" name="phone">
+
+      <label class="form-label" for="email">Email</label>
+      <input class="form-control" type="email" id="email" name="email" required>
+
+      <label class="form-label" for="message">Message</label>
+      <textarea class="form-control" id="message" name="message" required placeholder="Tell us about the job..."></textarea>
+
+      <button type="submit" class="btn btn-primary" id="submitBtn">Send Message</button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="nav-logo-icon">JJG</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-name">JJG Carpentry LLC</span>
+            <span class="nav-logo-tagline">Handyman &amp; Home Services</span>
+          </div>
+        </div>
+        <p>Your trusted handyman and home services professionals in South Florida.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <ul>
+          <li><a href="tel:9545403218">(954) 540-3218</a></li>
+          <li><a href="mailto:jjgcarpentryllc@outlook.com">jjgcarpentryllc@outlook.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year">2026</span> JJG Carpentry LLC. All rights reserved.</p>
+    </div>
+  </div>
 </footer>
 
 <script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* Mobile menu */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', function () {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(function (a) {
+  a.addEventListener('click', function () {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+/* Contact form (Web3Forms) */
 const form = document.getElementById('quoteForm');
 const statusEl = document.getElementById('formStatus');
 const submitBtn = document.getElementById('submitBtn');
@@ -458,4 +887,3 @@ form.addEventListener('submit', async function (e) {
 </script>
 
 </body>
-</html>
